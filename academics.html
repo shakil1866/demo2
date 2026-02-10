@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Explore waterloo austin's innovative curriculum including STEM, Humanities, Project-Based Learning, and College & Career Pathways.">
+    <title>Academics - waterloo austin</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <style>
+        .page-header {
+            background: var(--gradient-hero);
+            padding: 8rem 0 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 30% 70%, rgba(0, 102, 255, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 70% 30%, rgba(0, 212, 170, 0.1) 0%, transparent 50%);
+        }
+
+        .page-header-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            color: var(--text-inverse);
+            margin-bottom: var(--space-md);
+        }
+
+        .page-header p {
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-md);
+            margin-bottom: var(--space-lg);
+        }
+
+        .breadcrumb a {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .breadcrumb a:hover {
+            color: var(--color-accent-teal);
+        }
+
+        .breadcrumb span {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        /* Curriculum Section */
+        .curriculum-section {
+            padding: var(--space-3xl) 0;
+        }
+
+        .curriculum-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-2xl);
+            align-items: center;
+        }
+
+        .curriculum-content h2 {
+            margin-bottom: var(--space-lg);
+        }
+
+        .curriculum-list {
+            margin-top: var(--space-xl);
+        }
+
+        .curriculum-item {
+            display: flex;
+            gap: var(--space-lg);
+            padding: var(--space-lg);
+            background: var(--color-bg-tertiary);
+            border-radius: var(--radius-md);
+            margin-bottom: var(--space-md);
+            transition: var(--transition-normal);
+        }
+
+        .curriculum-item:hover {
+            transform: translateX(10px);
+            background: var(--color-bg-secondary);
+            box-shadow: var(--shadow-md);
+        }
+
+        .curriculum-number {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: var(--text-xl);
+            font-weight: var(--weight-bold);
+            color: var(--text-inverse);
+            flex-shrink: 0;
+        }
+
+        .curriculum-text h4 {
+            margin-bottom: var(--space-xs);
+        }
+
+        .curriculum-text p {
+            font-size: var(--text-base);
+            margin: 0;
+        }
+
+        .curriculum-visual {
+            background: var(--gradient-mesh);
+            border-radius: var(--radius-xl);
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: var(--text-6xl);
+        }
+
+        /* PBL Section */
+        #pbl {
+            background: var(--color-bg-tertiary);
+        }
+
+        .pbl-process {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: var(--space-lg);
+            margin-top: var(--space-2xl);
+        }
+
+        .pbl-step {
+            text-align: center;
+            padding: var(--space-xl);
+            background: var(--color-bg-secondary);
+            border-radius: var(--radius-lg);
+            position: relative;
+        }
+
+        .pbl-step::after {
+            content: '→';
+            position: absolute;
+            top: 50%;
+            right: -20px;
+            transform: translateY(-50%);
+            font-size: var(--text-3xl);
+            color: var(--color-accent-blue);
+        }
+
+        .pbl-step:last-child::after {
+            display: none;
+        }
+
+        .pbl-step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: var(--text-2xl);
+            font-weight: var(--weight-bold);
+            color: var(--text-inverse);
+            margin: 0 auto var(--space-md);
+        }
+
+        /* STEM Section */
+        #stem {
+            padding: var(--space-3xl) 0;
+        }
+
+        .stem-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-xl);
+        }
+
+        .stem-card {
+            background: var(--color-bg-secondary);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            transition: var(--transition-normal);
+        }
+
+        .stem-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .stem-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-mesh);
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: var(--text-4xl);
+            margin-bottom: var(--space-lg);
+        }
+
+        .stem-card h3 {
+            margin-bottom: var(--space-md);
+        }
+
+        .stem-features {
+            margin-top: var(--space-lg);
+        }
+
+        .stem-features li {
+            padding: var(--space-sm) 0;
+            border-bottom: 1px solid rgba(26, 26, 46, 0.1);
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+
+        .stem-features li:last-child {
+            border-bottom: none;
+        }
+
+        /* Humanities Section */
+        #humanities {
+            background: var(--color-bg-tertiary);
+        }
+
+        .humanities-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--space-lg);
+        }
+
+        .humanities-card {
+            background: var(--color-bg-secondary);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            text-align: center;
+            transition: var(--transition-normal);
+        }
+
+        .humanities-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .humanities-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--gradient-mesh);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: var(--text-3xl);
+            margin: 0 auto var(--space-lg);
+        }
+
+        /* Pathways Section */
+        #pathways {
+            padding: var(--space-3xl) 0;
+        }
+
+        .pathways-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-xl);
+        }
+
+        .pathway-card {
+            background: var(--color-bg-secondary);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            display: flex;
+            gap: var(--space-xl);
+            transition: var(--transition-normal);
+        }
+
+        .pathway-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .pathway-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-mesh);
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: var(--text-4xl);
+            flex-shrink: 0;
+        }
+
+        .pathway-content h3 {
+            margin-bottom: var(--space-md);
+        }
+
+        .pathway-stats {
+            display: flex;
+            gap: var(--space-xl);
+            margin-top: var(--space-lg);
+        }
+
+        .pathway-stat {
+            text-align: center;
+        }
+
+        .pathway-stat-number {
+            font-size: var(--text-3xl);
+            font-weight: var(--weight-bold);
+            color: var(--color-accent-blue);
+        }
+
+        .pathway-stat-label {
+            font-size: var(--text-sm);
+            color: var(--text-muted);
+        }
+
+        @media (max-width: 1199px) {
+            .pbl-process {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .pbl-step:nth-child(3)::after {
+                display: none;
+            }
+
+            .stem-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .humanities-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 991px) {
+            .curriculum-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pbl-process {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .pbl-step:nth-child(2)::after {
+                display: none;
+            }
+
+            .pathways-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .pbl-process {
+                grid-template-columns: 1fr;
+            }
+
+            .pbl-step::after {
+                display: none;
+            }
+
+            .stem-grid,
+            .humanities-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pathway-card {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Page Loader -->
+    <div class="loader">
+        <div class="loader-content">
+                     <div class="loader-logo"><img src="./image/logo.png"></div>
+            <p class="loader-text">Preparing Future Leaders</p>
+            <div class="loader-progress">
+                <div class="loader-progress-bar"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar scrolled" id="mainNavbar">
+        <div class="navbar-container">
+            <a href="index.html" class="navbar-brand">
+                <span class="brand-icon"> <img src="./image/logo.png" alt="" srcset=""> </span>                <span class="brand-text">waterloo austin</span>
+            </a>
+
+            <!-- Mobile Toggle Button -->
+            <button class="navbar-toggle" id="navbarToggle" aria-label="Toggle navigation" aria-expanded="false">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+
+            <!-- Navigation Links -->
+            <div class="navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Home</a>
+                    </li>
+
+                    <li class="nav-item nav-dropdown">
+                        <a href="#" class="nav-link dropdown-toggle">
+                            About
+                            <svg class="dropdown-icon" viewBox="0 0 24 24" width="16" height="16">
+                                <path fill="currentColor" d="M7 10l5 5 5-5z" />
+                            </svg>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="about.html" class="dropdown-item">Vision & Mission</a></li>
+                            <li><a href="about.html#values" class="dropdown-item">Core Values</a></li>
+                            <li><a href="about.html#leadership" class="dropdown-item">Leadership</a></li>
+                            <li><a href="about.html#faculty" class="dropdown-item">Faculty & Staff</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item nav-dropdown">
+                        <a href="#" class="nav-link dropdown-toggle">
+                            Academics
+                            <svg class="dropdown-icon" viewBox="0 0 24 24" width="16" height="16">
+                                <path fill="currentColor" d="M7 10l5 5 5-5z" />
+                            </svg>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="academics.html" class="dropdown-item">Curriculum</a></li>
+                            <li><a href="academics.html#pbl" class="dropdown-item">Project-Based Learning</a></li>
+                            <li><a href="academics.html#stem" class="dropdown-item">STEM</a></li>
+                            <li><a href="academics.html#humanities" class="dropdown-item">Humanities</a></li>
+                            <li><a href="academics.html#pathways" class="dropdown-item">College & Career Pathways</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item nav-dropdown">
+                        <a href="#" class="nav-link dropdown-toggle">
+                            Student Life
+                            <svg class="dropdown-icon" viewBox="0 0 24 24" width="16" height="16">
+                                <path fill="currentColor" d="M7 10l5 5 5-5z" />
+                            </svg>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="student-life.html" class="dropdown-item">Clubs & Activities</a></li>
+                            <li><a href="student-life.html#athletics" class="dropdown-item">Athletics</a></li>
+                            <li><a href="student-life.html#community" class="dropdown-item">Community Service</a></li>
+                            <li><a href="student-life.html#faith" class="dropdown-item">Faith & Values</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item nav-dropdown">
+                        <a href="#" class="nav-link dropdown-toggle">
+                            Admissions
+                            <svg class="dropdown-icon" viewBox="0 0 24 24" width="16" height="16">
+                                <path fill="currentColor" d="M7 10l5 5 5-5z" />
+                            </svg>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="admissions.html" class="dropdown-item">How to Apply</a></li>
+                            <li><a href="admissions.html#tuition" class="dropdown-item">Tuition & Financial Aid</a></li>
+                            <li><a href="admissions.html#faq" class="dropdown-item">FAQs</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="giving.html" class="nav-link">Giving</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="blog.html" class="nav-link">News</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">Contact</a>
+                    </li>
+                </ul>
+
+                <div class="navbar-actions">
+                    <a href="admissions.html" class="btn btn-secondary">Apply Now</a>
+                    <a href="contact.html" class="btn btn-primary">Schedule a Visit</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container">
+            <div class="page-header-content">
+                <div class="breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span>/</span>
+                    <span>Academics</span>
+                </div>
+                <h1>Academics</h1>
+                <p>Our innovative curriculum prepares students for the challenges and opportunities of the 21st century.
+                </p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Curriculum Overview -->
+    <section class="curriculum-section">
+        <div class="container">
+            <div class="curriculum-grid">
+                <div class="curriculum-content">
+                    <h2 class="text-gradient">A Curriculum Built for the Future</h2>
+                    <p>Our curriculum goes beyond traditional academics to develop critical thinking, creativity, and
+                        real-world problem-solving skills. We believe that students learn best when they are engaged in
+                        meaningful, hands-on experiences that connect to the world around them.</p>
+                    <p>Through a combination of rigorous academics and project-based learning, our students develop the
+                        skills they need to succeed in college and career while becoming compassionate, ethical leaders.
+                    </p>
+
+                    <div class="curriculum-list">
+                        <div class="curriculum-item">
+                            <div class="curriculum-number">01</div>
+                            <div class="curriculum-text">
+                                <h4>Rigorous Core Subjects</h4>
+                                <p>Mathematics, science, English, and social studies taught through inquiry and
+                                    exploration.</p>
+                            </div>
+                        </div>
+
+                        <div class="curriculum-item">
+                            <div class="curriculum-number">02</div>
+                            <div class="curriculum-text">
+                                <h4>Project-Based Learning</h4>
+                                <p>Real-world projects that develop critical thinking and collaboration skills.</p>
+                            </div>
+                        </div>
+
+                        <div class="curriculum-item">
+                            <div class="curriculum-number">03</div>
+                            <div class="curriculum-text">
+                                <h4>Innovation & Technology</h4>
+                                <p>Cutting-edge tools and technologies to prepare for the digital age.</p>
+                            </div>
+                        </div>
+
+                        <div class="curriculum-item">
+                            <div class="curriculum-number">04</div>
+                            <div class="curriculum-text">
+                                <h4>Arts & Humanities</h4>
+                                <p>Creative expression and cultural understanding for a well-rounded education.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="curriculum-visual">
+                    📚
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project-Based Learning -->
+    <section id="pbl" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Project-Based Learning</h2>
+                <p>Our students learn by doing. Every project addresses a real-world challenge and involves
+                    collaboration, research, and presentation.</p>
+            </div>
+
+            <div class="pbl-process">
+                <div class="pbl-step">
+                    <div class="pbl-step-number">1</div>
+                    <h4>Explore</h4>
+                    <p>Students discover real-world problems and choose projects they're passionate about.</p>
+                </div>
+
+                <div class="pbl-step">
+                    <div class="pbl-step-number">2</div>
+                    <h4>Research</h4>
+                    <p>In-depth investigation using multiple sources and expert interviews.</p>
+                </div>
+
+                <div class="pbl-step">
+                    <div class="pbl-step-number">3</div>
+                    <h4>Create</h4>
+                    <p>Develop innovative solutions through prototyping and iteration.</p>
+                </div>
+
+                <div class="pbl-step">
+                    <div class="pbl-step-number">4</div>
+                    <h4>Present</h4>
+                    <p>Showcase work to authentic audiences including community partners.</p>
+                </div>
+
+                <div class="pbl-step">
+                    <div class="pbl-step-number">5</div>
+                    <h4>Reflect</h4>
+                    <p>Evaluate learning and growth while gathering feedback for improvement.</p>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: var(--space-2xl);">
+                <a href="index.html#projects" class="btn btn-primary">View Student Projects</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- STEM Section -->
+    <section id="stem" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>STEM Excellence</h2>
+                <p>Our STEM program prepares students for careers in science, technology, engineering, and mathematics
+                    through hands-on labs and research.</p>
+            </div>
+
+            <div class="stem-grid">
+                <div class="stem-card">
+                    <div class="stem-icon">🔬</div>
+                    <h3>Science Labs</h3>
+                    <p>State-of-the-art laboratories for chemistry, biology, and physics with equipment used in
+                        professional research settings.</p>
+                    <ul class="stem-features">
+                        <li>✓ Advanced Chemistry Lab</li>
+                        <li>✓ Biology Research Center</li>
+                        <li>✓ Physics & Engineering Workshop</li>
+                    </ul>
+                </div>
+
+                <div class="stem-card">
+                    <div class="stem-icon">💻</div>
+                    <h3>Computer Science</h3>
+                    <p>From coding basics to advanced algorithms, our CS program covers the full spectrum of
+                        computational thinking.</p>
+                    <ul class="stem-features">
+                        <li>✓ Python & Java Programming</li>
+                        <li>✓ Web Development</li>
+                        <li>✓ Artificial Intelligence & Machine Learning</li>
+                    </ul>
+                </div>
+
+                <div class="stem-card">
+                    <div class="stem-icon">🤖</div>
+                    <h3>Robotics & AI</h3>
+                    <p>Design, build, and program robots while learning about artificial intelligence and automation.
+                    </p>
+                    <ul class="stem-features">
+                        <li>✓ Robotics Competition Team</li>
+                        <li>✓ AI & Machine Learning Lab</li>
+                        <li>✓ Automation Projects</li>
+                    </ul>
+                </div>
+
+                <div class="stem-card">
+                    <div class="stem-icon">🏗️</div>
+                    <h3>Engineering</h3>
+                    <p>Apply engineering principles to design and build innovative solutions to real problems.</p>
+                    <ul class="stem-features">
+                        <li>✓ 3D Design & Printing</li>
+                        <li>✓ CAD/CAM Engineering</li>
+                        <li>✓ Structural Engineering</li>
+                    </ul>
+                </div>
+
+                <div class="stem-card">
+                    <div class="stem-icon">📊</div>
+                    <h3>Mathematics</h3>
+                    <p>Beyond calculation—develop mathematical thinking and problem-solving skills applicable to any
+                        field.</p>
+                    <ul class="stem-features">
+                        <li>✓ Advanced Calculus</li>
+                        <li>✓ Statistics & Data Analysis</li>
+                        <li>✓ Mathematical Modeling</li>
+                    </ul>
+                </div>
+
+                <div class="stem-card">
+                    <div class="stem-icon">🌱</div>
+                    <h3>Environmental Science</h3>
+                    <p>Study our planet's ecosystems and develop sustainable solutions for environmental challenges.</p>
+                    <ul class="stem-features">
+                        <li>✓ Climate Research</li>
+                        <li>✓ Conservation Projects</li>
+                        <li>✓ Sustainability Initiatives</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Humanities Section -->
+    <section id="humanities" class="section" style="background: var(--color-bg-tertiary);">
+        <div class="container">
+            <div class="section-header">
+                <h2>Humanities</h2>
+                <p>Develop critical thinking, communication skills, and cultural understanding through the study of
+                    history, literature, and social sciences.</p>
+            </div>
+
+            <div class="humanities-grid">
+                <div class="humanities-card">
+                    <div class="humanities-icon">📜</div>
+                    <h3>History</h3>
+                    <p>Understanding the past to shape the future through the study of civilizations, cultures, and
+                        global events.</p>
+                </div>
+
+                <div class="humanities-card">
+                    <div class="humanities-icon">📖</div>
+                    <h3>Literature</h3>
+                    <p>Exploring classic and contemporary works while developing critical reading and analytical skills.
+                    </p>
+                </div>
+
+                <div class="humanities-card">
+                    <div class="humanities-icon">🗣️</div>
+                    <h3>Languages</h3>
+                    <p>Mastering world languages including Spanish, French, and Mandarin with cultural immersion
+                        experiences.</p>
+                </div>
+
+                <div class="humanities-card">
+                    <div class="humanities-icon">⚖️</div>
+                    <h3>Social Studies</h3>
+                    <p>Understanding society, government, economics, and civic responsibility through hands-on learning.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- College & Career Pathways -->
+    <section id="pathways" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>College & Career Pathways</h2>
+                <p>Prepare for your future through personalized guidance, internships, and college preparation.</p>
+            </div>
+
+            <div class="pathways-grid">
+                <div class="pathway-card">
+                    <div class="pathway-icon">🎓</div>
+                    <div class="pathway-content">
+                        <h3>College Preparation</h3>
+                        <p>Comprehensive support for college applications including essay coaching, interview
+                            preparation, and college selection guidance.</p>
+                        <div class="pathway-stats">
+                            <div class="pathway-stat">
+                                <div class="pathway-stat-number">100%</div>
+                                <div class="pathway-stat-label">College Acceptance</div>
+                            </div>
+                            <div class="pathway-stat">
+                                <div class="pathway-stat-number">95%</div>
+                                <div class="pathway-stat-label">Financial Aid</div>
+                            </div>
+                            <div class="pathway-stat">
+                                <div class="pathway-stat-number">$2M+</div>
+                                <div class="pathway-stat-label">Scholarships</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pathway-card">
+                    <div class="pathway-icon">💼</div>
+                    <div class="pathway-content">
+                        <h3>Career Exploration</h3>
+                        <p>Internships, job shadowing, and mentorship programs to help students discover their career
+                            passions.</p>
+                        <div class="pathway-stats">
+                            <div class="pathway-stat">
+                                <div class="pathway-stat-number">50+</div>
+                                <div class="pathway-stat-label">Partner Companies</div>
+                            </div>
+                            <div class="pathway-stat">
+                                <div class="pathway-stat-number">100+</div>
+                                <div class="pathway-stat-label">Internship Placements</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pathway-card">
+                    <div class="pathway-icon">🏢</div>
+                    <div class="pathway-content">
+                        <h3>Dual Enrollment</h3>
+                        <p>Earn college credits while still in high school through partnerships with local universities.
+                        </p>
+                        <div class="pathway-stats">
+                            <div class="pathway-stat">
+                                <div class="pathway-stat-number">30+</div>
+                                <div class="pathway-stat-label">College Credits Available</div>
+                            </div>
+                            <div class="pathway-stat">
+                                <div class="pathway-stat-number">3</div>
+                                <div class="pathway-stat-label">University Partners</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pathway-card">
+                    <div class="pathway-icon">🚀</div>
+                    <div class="pathway-content">
+                        <h3>Entrepreneurship</h3>
+                        <p>Launch your own business through our startup incubator and mentorship program.</p>
+                        <div class="pathway-stats">
+                            <div class="pathway-stat">
+                                <div class="pathway-stat-number">15+</div>
+                                <div class="pathway-stat-label">Startups Launched</div>
+                            </div>
+                            <div class="pathway-stat">
+                                <div class="pathway-stat-number">$500K</div>
+                                <div class="pathway-stat-label">Seed Funding</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Start Your Journey?</h2>
+                <p>Join our community of innovators and leaders. Apply today and discover your potential.</p>
+                <div class="cta-buttons">
+                    <a href="admissions.html" class="btn btn-primary btn-large">Apply Now</a>
+                    <a href="contact.html" class="btn btn-gold btn-large">Schedule a Visit</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">waterloo austin</div>
+                    <p>Preparing students to lead, innovate, and make a difference in an ever-changing world.</p>
+                    <div class="footer-social" style="margin-top: var(--space-lg);">
+                        <a href="#" aria-label="Facebook">📘</a>
+                        <a href="#" aria-label="Twitter">🐦</a>
+                        <a href="#" aria-label="Instagram">📷</a>
+                        <a href="#" aria-label="LinkedIn">💼</a>
+                        <a href="#" aria-label="YouTube">▶️</a>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="footer-title">About</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">Our Story</a></li>
+                        <li><a href="about.html#mission">Mission & Vision</a></li>
+                        <li><a href="about.html#leadership">Leadership</a></li>
+                        <li><a href="about.html#faculty">Faculty</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="footer-title">Academics</h4>
+                    <ul class="footer-links">
+                        <li><a href="academics.html">Curriculum</a></li>
+                        <li><a href="academics.html#stem">STEM</a></li>
+                        <li><a href="academics.html#humanities">Humanities</a></li>
+                        <li><a href="academics.html#pathways">College Pathways</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="footer-title">Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="admissions.html">Admissions</a></li>
+                        <li><a href="student-life.html">Student Life</a></li>
+                        <li><a href="giving.html">Support Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 waterloo austin. All rights reserved.</p>
+                <p style="margin-top: var(--space-sm); font-size: var(--text-xs); opacity: 0.7;">
+                    <a href="#" style="margin-right: var(--space-md);">Privacy Policy</a>
+                    <a href="#" style="margin-right: var(--space-md);">Terms of Service</a>
+                    <a href="#">Accessibility</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="page-transition"></div>
+    <div class="lightbox">
+        <button class="lightbox-close">×</button>
+        <div class="lightbox-content"></div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Get in touch with waterloo austin - schedule a visit, ask questions, or learn more about admissions.">
+    <title>Contact Us - waterloo austin</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <style>
+        .page-header {
+            background: var(--gradient-hero);
+            padding: 8rem 0 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 30% 70%, rgba(0, 102, 255, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 70% 30%, rgba(0, 212, 170, 0.1) 0%, transparent 50%);
+        }
+
+        .page-header-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            color: var(--text-inverse);
+            margin-bottom: var(--space-md);
+        }
+
+        .page-header p {
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-md);
+            margin-bottom: var(--space-lg);
+        }
+
+        .breadcrumb a {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .breadcrumb a:hover {
+            color: var(--color-accent-teal);
+        }
+
+        .breadcrumb span {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: var(--space-3xl) 0;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-2xl);
+        }
+
+        .contact-info h2 {
+            margin-bottom: var(--space-lg);
+        }
+
+        .contact-info p {
+            margin-bottom: var(--space-xl);
+        }
+
+        .contact-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-lg);
+        }
+
+        .contact-card {
+            background: var(--color-bg-tertiary);
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+            transition: var(--transition-normal);
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-mesh);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: var(--text-2xl);
+            margin-bottom: var(--space-md);
+        }
+
+        .contact-card h3 {
+            margin-bottom: var(--space-sm);
+            font-size: var(--text-lg);
+        }
+
+        .contact-card p {
+            font-size: var(--text-base);
+            margin: 0;
+        }
+
+        .contact-card a {
+            color: var(--color-accent-blue);
+        }
+
+        .contact-form-wrapper {
+            background: var(--color-bg-secondary);
+            border-radius: var(--radius-xl);
+            padding: var(--space-2xl);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .contact-form-wrapper h2 {
+            margin-bottom: var(--space-xl);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-lg);
+        }
+
+        .form-group {
+            margin-bottom: var(--space-lg);
+        }
+
+        .form-group label {
+            display: block;
+            font-size: var(--text-sm);
+            font-weight: var(--weight-medium);
+            margin-bottom: var(--space-sm);
+            color: var(--text-primary);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: var(--space-md) var(--space-lg);
+            font-size: var(--text-base);
+            border: 2px solid rgba(26, 26, 46, 0.1);
+            border-radius: var(--radius-md);
+            background: var(--color-bg-primary);
+            transition: var(--transition-normal);
+            font-family: inherit;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--color-accent-blue);
+            box-shadow: 0 0 0 4px rgba(0, 102, 255, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .form-submit {
+            text-align: center;
+            margin-top: var(--space-xl);
+        }
+
+        /* Map Section */
+        .map-section {
+            padding: var(--space-3xl) 0;
+            background: var(--color-bg-tertiary);
+        }
+
+        .map-container {
+            background: var(--gradient-mesh);
+            border-radius: var(--radius-xl);
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: var(--text-6xl);
+        }
+
+        /* Hours Section */
+        .hours-section {
+            padding: var(--space-3xl) 0;
+        }
+
+        .hours-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-xl);
+            margin-top: var(--space-2xl);
+        }
+
+        .hours-card {
+            background: var(--color-bg-secondary);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            text-align: center;
+            transition: var(--transition-normal);
+        }
+
+        .hours-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .hours-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-mesh);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: var(--text-3xl);
+            margin: 0 auto var(--space-lg);
+        }
+
+        .hours-card h3 {
+            margin-bottom: var(--space-md);
+        }
+
+        .hours-card p {
+            font-size: var(--text-base);
+            margin: 0;
+        }
+
+        .hours-card .hours-list {
+            margin-top: var(--space-md);
+            text-align: left;
+        }
+
+        .hours-card .hours-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: var(--space-sm) 0;
+            border-bottom: 1px solid rgba(26, 26, 46, 0.1);
+        }
+
+        .hours-card .hours-list li:last-child {
+            border-bottom: none;
+        }
+
+        /* Social Section */
+        .social-section {
+            padding: var(--space-3xl) 0;
+            background: var(--color-bg-tertiary);
+        }
+
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: var(--space-lg);
+            margin-top: var(--space-2xl);
+        }
+
+        .social-card {
+            background: var(--color-bg-secondary);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            text-align: center;
+            transition: var(--transition-normal);
+            text-decoration: none;
+            color: var(--text-primary);
+        }
+
+        .social-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+            color: var(--color-accent-blue);
+        }
+
+        .social-icon {
+            font-size: var(--text-4xl);
+            margin-bottom: var(--space-md);
+        }
+
+        .social-card h4 {
+            font-size: var(--text-base);
+        }
+
+        @media (max-width: 1199px) {
+            .social-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 991px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .hours-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .social-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 767px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .social-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Page Loader -->
+    <div class="loader">
+        <div class="loader-content">
+                     <div class="loader-logo"><img src="./image/logo.png"></div>
+            <p class="loader-text">Preparing Future Leaders</p>
+            <div class="loader-progress">
+                <div class="loader-progress-bar"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar scrolled" id="mainNavbar">
+        <div class="navbar-container">
+            <a href="index.html" class="navbar-brand">
+                <span class="brand-icon">FA</span>
+                <span class="brand-text">waterloo austin</span>
+            </a>
+
+            <!-- Mobile Toggle Button -->
+            <button class="navbar-toggle" id="navbarToggle" aria-label="Toggle navigation" aria-expanded="false">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+
+            <!-- Navigation Links -->
+            <div class="navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Home</a>
+                    </li>
+
+                    <li class="nav-item nav-dropdown">
+                        <a href="#" class="nav-link dropdown-toggle">
+                            About
+                            <svg class="dropdown-icon" viewBox="0 0 24 24" width="16" height="16">
+                                <path fill="currentColor" d="M7 10l5 5 5-5z" />
+                            </svg>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="about.html" class="dropdown-item">Vision & Mission</a></li>
+                            <li><a href="about.html#values" class="dropdown-item">Core Values</a></li>
+                            <li><a href="about.html#leadership" class="dropdown-item">Leadership</a></li>
+                            <li><a href="about.html#faculty" class="dropdown-item">Faculty & Staff</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item nav-dropdown">
+                        <a href="#" class="nav-link dropdown-toggle">
+                            Academics
+                            <svg class="dropdown-icon" viewBox="0 0 24 24" width="16" height="16">
+                                <path fill="currentColor" d="M7 10l5 5 5-5z" />
+                            </svg>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="academics.html" class="dropdown-item">Curriculum</a></li>
+                            <li><a href="academics.html#pbl" class="dropdown-item">Project-Based Learning</a></li>
+                            <li><a href="academics.html#stem" class="dropdown-item">STEM</a></li>
+                            <li><a href="academics.html#humanities" class="dropdown-item">Humanities</a></li>
+                            <li><a href="academics.html#pathways" class="dropdown-item">College & Career Pathways</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item nav-dropdown">
+                        <a href="#" class="nav-link dropdown-toggle">
+                            Student Life
+                            <svg class="dropdown-icon" viewBox="0 0 24 24" width="16" height="16">
+                                <path fill="currentColor" d="M7 10l5 5 5-5z" />
+                            </svg>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="student-life.html" class="dropdown-item">Clubs & Activities</a></li>
+                            <li><a href="student-life.html#athletics" class="dropdown-item">Athletics</a></li>
+                            <li><a href="student-life.html#community" class="dropdown-item">Community Service</a></li>
+                            <li><a href="student-life.html#faith" class="dropdown-item">Faith & Values</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item nav-dropdown">
+                        <a href="#" class="nav-link dropdown-toggle">
+                            Admissions
+                            <svg class="dropdown-icon" viewBox="0 0 24 24" width="16" height="16">
+                                <path fill="currentColor" d="M7 10l5 5 5-5z" />
+                            </svg>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="admissions.html" class="dropdown-item">How to Apply</a></li>
+                            <li><a href="admissions.html#tuition" class="dropdown-item">Tuition & Financial Aid</a></li>
+                            <li><a href="admissions.html#faq" class="dropdown-item">FAQs</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="giving.html" class="nav-link">Giving</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="blog.html" class="nav-link">News</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">Contact</a>
+                    </li>
+                </ul>
+
+                <div class="navbar-actions">
+                    <a href="admissions.html" class="btn btn-secondary">Apply Now</a>
+                    <a href="contact.html" class="btn btn-primary">Schedule a Visit</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container">
+            <div class="page-header-content">
+                <div class="breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span>/</span>
+                    <span>Contact</span>
+                </div>
+                <h1>Contact Us</h1>
+                <p>We'd love to hear from you. Reach out to learn more about waterloo austin or schedule a visit.</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h2 class="text-gradient">Get in Touch</h2>
+                    <p>Whether you're interested in admissions, have questions about our programs, or want to schedule a
+                        campus visit, our team is here to help.</p>
+
+                    <div class="contact-cards">
+                        <div class="contact-card">
+                            <div class="contact-icon">📍</div>
+                            <h3>Address</h3>
+                            <p>123 Education Lane<br>Academic City, AC 12345</p>
+                        </div>
+
+                        <div class="contact-card">
+                            <div class="contact-icon">📞</div>
+                            <h3>Phone</h3>
+                            <p><a href="tel:1234567890">(123) 456-7890</a></p>
+                        </div>
+
+                        <div class="contact-card">
+                            <div class="contact-icon">✉️</div>
+                            <h3>Email</h3>
+                            <p><a href="mailto:info@futureacademy.edu">info@futureacademy.edu</a></p>
+                        </div>
+
+                        <div class="contact-card">
+                            <div class="contact-icon">🎓</div>
+                            <h3>Admissions</h3>
+                            <p><a href="mailto:admissions@futureacademy.edu">admissions@futureacademy.edu</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form-wrapper">
+                    <h2>Send Us a Message</h2>
+                    <form>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name *</label>
+                                <input type="text" id="firstName" class="form-input" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name *</label>
+                                <input type="text" id="lastName" class="form-input" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <input type="email" id="email" class="form-input" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone</label>
+                                <input type="tel" id="phone" class="form-input">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="department">Department</label>
+                            <select id="department" class="form-input">
+                                <option value="">Select Department</option>
+                                <option value="admissions">Admissions</option>
+                                <option value="academics">Academics</option>
+                                <option value="student-life">Student Life</option>
+                                <option value="giving">Giving</option>
+                                <option value="general">General Inquiry</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" class="form-input" rows="5" required></textarea>
+                        </div>
+
+                        <div class="form-submit">
+                            <button type="submit" class="btn btn-primary btn-large">Send Message</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Visit Our Campus</h2>
+                <p>Schedule a personalized tour to experience life at waterloo austin.</p>
+            </div>
+
+            <div class="map-container">
+                🗺️
+            </div>
+
+            <div style="text-align: center; margin-top: var(--space-xl);">
+                <a href="#" class="btn btn-primary btn-large">Schedule a Campus Tour</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hours Section -->
+    <section class="hours-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Office Hours</h2>
+                <p>Plan your visit during our regular office hours.</p>
+            </div>
+
+            <div class="hours-grid">
+                <div class="hours-card">
+                    <div class="hours-icon">🏢</div>
+                    <h3>Main Office</h3>
+                    <ul class="hours-list">
+                        <li><span>Monday - Friday</span><span>8:00 AM - 5:00 PM</span></li>
+                        <li><span>Saturday</span><span>9:00 AM - 1:00 PM</span></li>
+                        <li><span>Sunday</span><span>Closed</span></li>
+                    </ul>
+                </div>
+
+                <div class="hours-card">
+                    <div class="hours-icon">📚</div>
+                    <h3>Admissions Office</h3>
+                    <ul class="hours-list">
+                        <li><span>Monday - Friday</span><span>9:00 AM - 4:00 PM</span></li>
+                        <li><span>Saturday</span><span>By Appointment</span></li>
+                        <li><span>Sunday</span><span>Closed</span></li>
+                    </ul>
+                </div>
+
+                <div class="hours-card">
+                    <div class="hours-icon">🎓</div>
+                    <h3>College Counseling</h3>
+                    <ul class="hours-list">
+                        <li><span>Monday - Friday</span><span>8:30 AM - 4:30 PM</span></li>
+                        <li><span>Saturday</span><span>Closed</span></li>
+                        <li><span>Sunday</span><span>Closed</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Section -->
+    <section class="social-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Connect With Us</h2>
+                <p>Follow us on social media for the latest news, events, and updates.</p>
+            </div>
+
+            <div class="social-grid">
+                <a href="#" class="social-card">
+                    <div class="social-icon">📘</div>
+                    <h4>Facebook</h4>
+                </a>
+
+                <a href="#" class="social-card">
+                    <div class="social-icon">🐦</div>
+                    <h4>Twitter</h4>
+                </a>
+
+                <a href="#" class="social-card">
+                    <div class="social-icon">📷</div>
+                    <h4>Instagram</h4>
+                </a>
+
+                <a href="#" class="social-card">
+                    <div class="social-icon">💼</div>
+                    <h4>LinkedIn</h4>
+                </a>
+
+                <a href="#" class="social-card">
+                    <div class="social-icon">▶️</div>
+                    <h4>YouTube</h4>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Visit?</h2>
+                <p>Experience the waterloo austin difference firsthand. Schedule your personalized campus tour today.</p>
+                <div class="cta-buttons">
+                    <a href="#" class="btn btn-primary btn-large">Schedule a Visit</a>
+                    <a href="admissions.html" class="btn btn-gold btn-large">Apply Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">waterloo austin</div>
+                    <p>Preparing students to lead, innovate, and make a difference in an ever-changing world.</p>
+                    <div class="footer-social" style="margin-top: var(--space-lg);">
+                        <a href="#" aria-label="Facebook">📘</a>
+                        <a href="#" aria-label="Twitter">🐦</a>
+                        <a href="#" aria-label="Instagram">📷</a>
+                        <a href="#" aria-label="LinkedIn">💼</a>
+                        <a href="#" aria-label="YouTube">▶️</a>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="footer-title">About</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">Our Story</a></li>
+                        <li><a href="about.html#mission">Mission & Vision</a></li>
+                        <li><a href="about.html#leadership">Leadership</a></li>
+                        <li><a href="about.html#faculty">Faculty</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="footer-title">Academics</h4>
+                    <ul class="footer-links">
+                        <li><a href="academics.html">Curriculum</a></li>
+                        <li><a href="academics.html#stem">STEM</a></li>
+                        <li><a href="academics.html#humanities">Humanities</a></li>
+                        <li><a href="academics.html#pathways">College Pathways</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="footer-title">Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="admissions.html">Admissions</a></li>
+                        <li><a href="student-life.html">Student Life</a></li>
+                        <li><a href="giving.html">Support Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 waterloo austin. All rights reserved.</p>
+                <p style="margin-top: var(--space-sm); font-size: var(--text-xs); opacity: 0.7;">
+                    <a href="#" style="margin-right: var(--space-md);">Privacy Policy</a>
+                    <a href="#" style="margin-right: var(--space-md);">Terms of Service</a>
+                    <a href="#">Accessibility</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="page-transition"></div>
+    <div class="lightbox">
+        <button class="lightbox-close">×</button>
+        <div class="lightbox-content"></div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
