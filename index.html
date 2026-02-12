@@ -7,6 +7,7 @@
     <meta name="description"
         content="Premium educational institution preparing students for the future through innovative learning, mentorship, and real-world readiness.">
     <title>waterloo austin - Learn to Be Future-Ready, Today</title>
+    <link rel="icon" type="image/svg+xml" href="/image/logo.png">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -247,70 +248,93 @@
             transform: scale(1.1) rotate(3deg);
         }
 
-        /* Academic Cards */
+        /* Academic Cards - Image Based Design */
         .academic-card {
             position: relative;
-            padding: var(--space-xl);
-            background: var(--color-bg-secondary);
             border-radius: var(--radius-lg);
             overflow: hidden;
+            min-height: 320px;
+            background: var(--color-bg-secondary);
             transition: var(--transition-normal);
         }
 
-        .academic-card::before {
-            content: '';
+        .academic-card-image {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: var(--gradient-hero);
-            opacity: 0;
-            transition: var(--transition-normal);
+        }
+
+        .academic-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-slow);
+        }
+
+        .academic-card-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(30, 41, 59, 0.2) 0%, rgba(30, 41, 59, 0.95) 100%);
         }
 
         .academic-card:hover {
             transform: translateY(-8px);
         }
 
-        .academic-card:hover::before {
-            opacity: 0.95;
+        .academic-card:hover .academic-card-image img {
+            transform: scale(1.1);
         }
 
-        .academic-card:hover .academic-content {
+        .academic-card-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: var(--space-xl);
             color: var(--text-inverse);
+            z-index: 2;
         }
 
-        .academic-card:hover .academic-icon {
-            background: rgba(255, 255, 255, 0.15);
-            color: var(--text-inverse);
-        }
-
-        .academic-icon {
-            width: 64px;
-            height: 64px;
-            background: var(--gradient-mesh);
-            border-radius: var(--radius-lg);
+        .academic-icon-wrapper {
+            width: 48px;
+            height: 48px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(8px);
+            border-radius: var(--radius-md);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: var(--text-3xl);
-            margin-bottom: var(--space-lg);
-            transition: var(--transition-normal);
-        }
-
-        .academic-content h3 {
             margin-bottom: var(--space-md);
+            font-size: var(--text-xl);
             transition: var(--transition-normal);
         }
 
-        .academic-content p {
+        .academic-card:hover .academic-icon-wrapper {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.1);
+        }
+
+        .academic-card-content h3 {
+            margin-bottom: var(--space-sm);
+            color: var(--text-inverse);
+            font-size: var(--text-xl);
+            transition: var(--transition-normal);
+        }
+
+        .academic-card-content p {
+            color: rgba(255, 255, 255, 0.85);
             margin-bottom: var(--space-md);
-            transition: var(--transition-normal);
+            font-size: var(--text-sm);
+            line-height: 1.6;
         }
 
-        .academic-link {
-            color: var(--color-accent-blue);
+        .academic-card-content .academic-link {
+            color: var(--color-accent-coral);
             font-weight: var(--weight-semibold);
             display: inline-flex;
             align-items: center;
@@ -318,8 +342,16 @@
             transition: var(--transition-normal);
         }
 
-        .academic-card:hover .academic-link {
+        .academic-card:hover .academic-card-content .academic-link {
             color: var(--text-inverse);
+        }
+
+        .academic-link-arrow {
+            transition: transform var(--transition-normal);
+        }
+
+        .academic-card:hover .academic-link-arrow {
+            transform: translateX(4px);
         }
 
         /* Project Gallery */
@@ -459,8 +491,9 @@
     <!-- Page Loader -->
     <div class="loader">
         <div class="loader-content">
-                     <div class="loader-logo"><img src="./image/logo.png"></div>
-   
+            <div class="loader-logo" style="width: 150px; height:150px;"><img src="./image/logo.png"
+                    style="width: 100px; height:100px;"></div>
+
             <p class="loader-text">Preparing Future Leaders</p>
         </div>
     </div>
@@ -469,8 +502,8 @@
     <nav class="navbar" id="mainNavbar">
         <div class="navbar-container">
             <a href="index.html" class="navbar-brand">
-                <span class="brand-icon"> <img src="./image/logo.png" alt="" srcset=""> </span>                
-                <span class="brand-text">waterloo austin</span>
+                <span class="brand-icon"> <img src="./image/logo1.png" alt="" srcset=""> </span>
+
             </a>
 
             <!-- Mobile Toggle Button -->
@@ -562,7 +595,7 @@
                 </ul>
 
                 <div class="navbar-actions">
-                    <a href="admissions.html" class="btn btn-secondary">Apply Now</a>
+                    <a href="admissions.html" class="btn ">Apply Now</a>
                     <a href="contact.html" class="btn btn-primary">Schedule a Visit</a>
                 </div>
             </div>
@@ -571,15 +604,8 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-video-bg">
-            <video autoplay muted loop playsinline
-                poster="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1920&q=80">
-                <source
-                    src="https://assets.mixkit.co/videos/preview/mixkit-students-learning-in-a-computer-lab-4082-large.mp4"
-                    type="video/mp4">
-            </video>
-            <div class="hero-video-overlay"></div>
-            <div class="hero-placeholder"></div>
+        <div class="hero-image-bg">
+            <img src="image/hero.png" alt="Campus background">
         </div>
         <div class="hero-bg-gradient"></div>
         <div class="hero-floating-shapes">
@@ -594,26 +620,25 @@
                     <span class="badge-icon">🏆</span>
                     <span>Ranked #1 Private School in the Region (2024)</span>
                 </div>
-                <h1>Learn to Be <span class="text-gradient">Future-Ready</span>, Today</h1>
-                <p>We prepare students not just for college, but for life. Through innovative
-                    learning, mentorship, and real-world experience, our graduates lead with confidence and purpose.</p>
+                <h1>Learn to be<span class="text-gradient"> future-ready, now </span></h1>
+                <p>An innovative private project-based high school in Austin, TX.</p>
                 <div class="hero-stats">
                     <div class="stat-item">
                         <span class="stat-number">98%</span>
                         <span class="stat-label">College Acceptance</span>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-number">15:1</span>
-                        <span class="stat-label">Student-Teacher Ratio</span>
+                        <span class="stat-number">45+</span>
+                        <span class="stat-label">Clubs & Organizations</span>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-number">50+</span>
-                        <span class="stat-label">AP & STEM Courses</span>
+                        <span class="stat-number">18:1</span>
+                        <span class="stat-label">Student–Faculty Ratio</span>
                     </div>
                 </div>
                 <div class="hero-cta">
-                    <a href="admissions.html" class="btn btn-primary btn-large">Apply Now</a>
-                    <a href="academics.html" class="btn btn-secondary btn-large">Explore Academics</a>
+                    <a href="admissions.html" class="btn  btn-large">Apply Now</a>
+                    <a href="academics.html" class="btn btn-large">Explore Academics</a>
                 </div>
                 <div class="hero-trust">
                     <span class="trust-label">Trusted by 2,500+ Families</span>
@@ -645,7 +670,7 @@
                     <div class="stat-label">Clubs & Organizations</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-number" data-count="15">0</div>
+                    <div class="stat-number" data-count="16">0</div>
                     <div class="stat-label">Average Class Size</div>
                 </div>
             </div>
@@ -657,11 +682,16 @@
         <div class="container">
             <div class="about-grid">
                 <div class="about-content">
-                    <h2 class="text-gradient">Where Innovation Meets Tradition</h2>
-                    <p>At waterloo austin, we believe education should be as dynamic as the world our students will
-                        inherit. Our unique approach combines rigorous academics with hands-on learning experiences.</p>
-                    <p>Every student is paired with a dedicated mentor who guides their academic journey, helping them
-                        discover their passions and develop the skills they need to succeed.</p>
+                    <h2 class="text-gradient">WHY WATERLOO?</h2>
+                    <p>Waterloo is a private high school (grades 9-12) for students who want to get more out of their
+                        education — and out of life.</p>
+                    <p>We understand that traditional schooling can sometimes make learning feel stressful and
+                        overwhelming, impacting students’ engagement and well-being. That’s why we’ve crafted a unique
+                        approach to education, combining innovative research with practical insights to create an
+                        environment that supports both academic success and a balanced, fulfilling life.
+
+                        It starts with seeing each student as unique, with particular God-given gifts meant to be used
+                        for individual growth and for the world.</p>
                     <a href="about.html" class="btn btn-primary" style="margin-top: var(--space-lg);">Discover Our
                         Story</a>
                 </div>
@@ -728,40 +758,68 @@
                 <p>Our curriculum prepares students for the rigors of higher education and the modern workforce.</p>
             </div>
 
-            <div class="grid-4">
+            <div class="academic-grid">
                 <div class="academic-card card-hover">
-                    <div class="academic-icon">🔬</div>
-                    <div class="academic-content">
+                    <div class="academic-card-image">
+                        <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=600&q=80"
+                            alt="STEM Excellence">
+                        <div class="academic-card-overlay"></div>
+                    </div>
+                    <div class="academic-card-content">
+                        <div class="academic-icon-wrapper">🔬</div>
                         <h3>STEM Excellence</h3>
                         <p>Cutting-edge science, technology, engineering, and mathematics programs.</p>
-                        <a href="academics.html#stem" class="academic-link">Learn More →</a>
+                        <a href="academics.html#stem" class="academic-link">
+                            Learn More <span class="academic-link-arrow">→</span>
+                        </a>
                     </div>
                 </div>
 
                 <div class="academic-card card-hover">
-                    <div class="academic-icon">📚</div>
-                    <div class="academic-content">
+                    <div class="academic-card-image">
+                        <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=600&q=80"
+                            alt="Humanities">
+                        <div class="academic-card-overlay"></div>
+                    </div>
+                    <div class="academic-card-content">
+                        <div class="academic-icon-wrapper">📚</div>
                         <h3>Humanities</h3>
                         <p>Deep exploration of history, literature, and social sciences.</p>
-                        <a href="academics.html#humanities" class="academic-link">Learn More →</a>
+                        <a href="academics.html#humanities" class="academic-link">
+                            Learn More <span class="academic-link-arrow">→</span>
+                        </a>
                     </div>
                 </div>
 
                 <div class="academic-card card-hover">
-                    <div class="academic-icon">🎨</div>
-                    <div class="academic-content">
+                    <div class="academic-card-image">
+                        <img src="https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=600&q=80"
+                            alt="Arts & Creativity">
+                        <div class="academic-card-overlay"></div>
+                    </div>
+                    <div class="academic-card-content">
+                        <div class="academic-icon-wrapper">🎨</div>
                         <h3>Arts & Creativity</h3>
                         <p>Visual arts, music, drama, and digital media programs.</p>
-                        <a href="academics.html#arts" class="academic-link">Learn More →</a>
+                        <a href="academics.html#arts" class="academic-link">
+                            Learn More <span class="academic-link-arrow">→</span>
+                        </a>
                     </div>
                 </div>
 
                 <div class="academic-card card-hover">
-                    <div class="academic-icon">🚀</div>
-                    <div class="academic-content">
+                    <div class="academic-card-image">
+                        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&q=80"
+                            alt="Innovation Projects">
+                        <div class="academic-card-overlay"></div>
+                    </div>
+                    <div class="academic-card-content">
+                        <div class="academic-icon-wrapper">🚀</div>
                         <h3>Innovation Projects</h3>
                         <p>Capstone projects with industry mentors.</p>
-                        <a href="academics.html#innovation" class="academic-link">Learn More →</a>
+                        <a href="academics.html#innovation" class="academic-link">
+                            Learn More <span class="academic-link-arrow">→</span>
+                        </a>
                     </div>
                 </div>
             </div>
