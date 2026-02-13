@@ -7,6 +7,7 @@
     <meta name="description"
         content="Explore student life at waterloo austin - clubs, athletics, community service, and faith-based programs.">
     <title>Student Life - waterloo austin</title>
+       <link rel="icon" type="image/svg+xml" href="/image/logo.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -252,7 +253,7 @@
 
         .faith-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: var(--space-xl);
         }
 
@@ -378,22 +379,22 @@
 </head>
 
 <body>
-    <!-- Page Loader -->
+   <!-- Page Loader -->
     <div class="loader">
         <div class="loader-content">
-                     <div class="loader-logo"><img src="./image/logo.png"></div>
+            <div class="loader-logo" style="width: 150px; height:150px;"><img src="./image/logo.png"
+                    style="width: 100px; height:100px;"></div>
+
             <p class="loader-text">Preparing Future Leaders</p>
-            <div class="loader-progress">
-                <div class="loader-progress-bar"></div>
-            </div>
         </div>
     </div>
 
     <!-- Navigation -->
-    <nav class="navbar scrolled" id="mainNavbar">
+    <nav class="navbar" id="mainNavbar">
         <div class="navbar-container">
             <a href="index.html" class="navbar-brand">
-                <span class="brand-icon"> <img src="./image/logo.png" alt="" srcset=""> </span>                <span class="brand-text">waterloo austin</span>
+                <span class="brand-icon"> <img src="./image/logo1.png" alt="" srcset=""> </span>
+
             </a>
 
             <!-- Mobile Toggle Button -->
@@ -485,7 +486,7 @@
                 </ul>
 
                 <div class="navbar-actions">
-                    <a href="admissions.html" class="btn btn-secondary">Apply Now</a>
+                    <a href="admissions.html" class="btn ">Apply Now</a>
                     <a href="contact.html" class="btn btn-primary">Schedule a Visit</a>
                 </div>
             </div>
@@ -519,29 +520,29 @@
             <div class="clubs-grid">
                 <div class="club-card">
                     <div class="club-icon">🎭</div>
-                    <h3>Drama Club</h3>
-                    <p>Productions, acting workshops, and theater appreciation.</p>
+                    <h3>Laser and 3D Printing Club:</h3>
+                    <p>Students use the school's "D-Lab" to design and create custom projects using laser cutters and 3D printers.</p>
                     <div class="club-members">45 Members</div>
                 </div>
 
                 <div class="club-card">
                     <div class="club-icon">🎵</div>
-                    <h3>Music Ensemble</h3>
-                    <p>Band, choir, orchestra, and music production.</p>
+                    <h3>Rock Climbing Club</h3>
+                    <p>Every Friday, students travel to a local climbing gym to build community and develop athletic skills..</p>
                     <div class="club-members">60 Members</div>
                 </div>
 
                 <div class="club-card">
                     <div class="club-icon">🎨</div>
-                    <h3>Art Collective</h3>
-                    <p>Visual arts, digital design, and creative expression.</p>
+                    <h3>Hand-Crafting Club</h3>
+                    <p>A creative space for traditional crafts, including embroidery art, hand-dipped candles, and miniature sewing projects.</p>
                     <div class="club-members">35 Members</div>
                 </div>
 
                 <div class="club-card">
                     <div class="club-icon">🤖</div>
-                    <h3>Robotics Team</h3>
-                    <p>Competition robotics, coding, and engineering.</p>
+                    <h3>Chess and Table Tennis Club</h3>
+                    <p>A weekly gathering for students to engage in friendly games and competitive tournaments.</p>
                     <div class="club-members">30 Members</div>
                 </div>
 
@@ -554,22 +555,22 @@
 
                 <div class="club-card">
                     <div class="club-icon">🌍</div>
-                    <h3>Model UN</h3>
-                    <p>Global diplomacy and debate competitions.</p>
+                    <h3>Maker Club</h3>
+                    <p>A hands-on club where students learn woodworking basics and use power tools to build functional items like furniture and storage bins.</p>
                     <div class="club-members">25 Members</div>
                 </div>
 
                 <div class="club-card">
                     <div class="club-icon">💡</div>
-                    <h3>Innovation Lab</h3>
-                    <p>Entrepreneurship and startup incubation.</p>
+                    <h3>Yearbook Club:</h3>
+                    <p>Students document the school year, capturing memories and growth for the annual "Grackle" yearbook. </p>
                     <div class="club-members">15 Members</div>
                 </div>
 
                 <div class="club-card">
                     <div class="club-icon">📚</div>
-                    <h3>Debate Team</h3>
-                    <p>Competitive debate and public speaking.</p>
+                    <h3>Academic Competitions</h3>
+                    <p> Students participate in the Science Fair and Mock Trial. </p>
                     <div class="club-members">18 Members</div>
                 </div>
             </div>
@@ -591,7 +592,7 @@
 
             <div class="athletics-grid">
                 <div class="sport-card">
-                    <div class="sport-image">🏀</div>
+                    <div class="sport-image"><img src="./image/Basketball.png" alt="" srcset=""></div>
                     <div class="sport-info">
                         <h3>Basketball</h3>
                         <p>Varsity and junior varsity teams competing in the state league.</p>
@@ -608,44 +609,10 @@
                     </div>
                 </div>
 
-                <div class="sport-card">
-                    <div class="sport-image">⚽</div>
-                    <div class="sport-info">
-                        <h3>Soccer</h3>
-                        <p>Competitive soccer program for all skill levels.</p>
-                        <div class="sport-stats">
-                            <div class="sport-stat">
-                                <div class="sport-stat-number">2</div>
-                                <div class="sport-stat-label">State Titles</div>
-                            </div>
-                            <div class="sport-stat">
-                                <div class="sport-stat-number">30</div>
-                                <div class="sport-stat-label">Players</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
 
                 <div class="sport-card">
-                    <div class="sport-image">🏊</div>
-                    <div class="sport-info">
-                        <h3>Swimming</h3>
-                        <p>Swimming and diving with state-level competition.</p>
-                        <div class="sport-stats">
-                            <div class="sport-stat">
-                                <div class="sport-stat-number">5</div>
-                                <div class="sport-stat-label">State Titles</div>
-                            </div>
-                            <div class="sport-stat">
-                                <div class="sport-stat-number">20</div>
-                                <div class="sport-stat-label">Swimmers</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="sport-card">
-                    <div class="sport-image">🎾</div>
+                    <div class="sport-image"><img src="./image/Tennis.png" alt="" srcset=""></div>
                     <div class="sport-info">
                         <h3>Tennis</h3>
                         <p>Individual and team tennis competitions.</p>
@@ -663,7 +630,7 @@
                 </div>
 
                 <div class="sport-card">
-                    <div class="sport-image">🏈</div>
+                    <div class="sport-image"><img src="./image/Flag Football.png" alt="" srcset=""></div>
                     <div class="sport-info">
                         <h3>Flag Football</h3>
                         <p>Co-ed flag football league with intramural and competitive options.</p>
@@ -681,7 +648,7 @@
                 </div>
 
                 <div class="sport-card">
-                    <div class="sport-image">🏃</div>
+                    <div class="sport-image"><img src="./image/Cross Country.png" alt="" srcset=""></div>
                     <div class="sport-info">
                         <h3>Cross Country</h3>
                         <p>Running and endurance training with competitive meets.</p>
@@ -707,10 +674,8 @@
             <div class="community-grid">
                 <div class="community-content">
                     <h2 class="text-gradient">Community Service</h2>
-                    <p>Service is at the heart of our school culture. Students are encouraged to give back to their
-                        communities through meaningful service projects that make a real difference.</p>
-                    <p>From local food banks to international mission trips, our students develop empathy, leadership,
-                        and a commitment to service that lasts a lifetime.</p>
+                    <p>Community service at Waterloo School Austin is an extension of its core pillars—Integrity, Innovation, and Collaboration—transforming traditional volunteerism into meaningful "service-learning" . By emphasizing Integrity, students take on real-world responsibilities that offer genuine value to their neighbors, such as the senior-led project to design and implement professional landscaping for a new hospice house at Community First! Village . The school fosters Innovation by challenging students to prototype creative solutions to local issues, ranging from environmental restoration at Waterloo Greenway to advocating for the rehabilitation of survivors of child sex. </p>
+                    <p>Ultimately, these efforts are deeply Relational, requiring students to collaborate with local mentors and professional supervisors to ensure their work fosters the long-term flourishing of the Austin community </p>
 
                     <div class="impact-stats">
                         <div class="impact-stat">
@@ -729,7 +694,7 @@
                 </div>
 
                 <div class="community-image">
-                    🤝
+                    <img src="./image/communication.png" alt="" srcset="">
                 </div>
             </div>
         </div>
@@ -746,22 +711,15 @@
 
             <div class="faith-grid">
                 <div class="faith-card">
-                    <div class="faith-icon">🕊️</div>
-                    <h3>Service Learning</h3>
-                    <p>Integrating service into the curriculum to develop compassion and civic responsibility.</p>
+                <h3>FAITH</h3>
+                    <p>Waterloo is a school by Christians who want each student to grow into flourishing young adulthood. Each student is on a unique, personal journey, and we meet and mentor them through their high school years. Waterloo may not look like other private Christian schools, but our faith is integral to everything we do.</p>
                 </div>
 
                 <div class="faith-card">
-                    <div class="faith-icon">🤝</div>
-                    <h3>Character Education</h3>
-                    <p>Weekly lessons on integrity, respect, and ethical decision-making.</p>
+                    <h3>OUR VALUES</h3>
+                    <p>Waterloo School integrates academics and city engagement, mentoring students toward wholeness in Christ. Our mission is animated by seven core values: Belonging, Mentorship, Restoration, Complexity, Flourishing, Growth, and Generosity, fostering a community where students mature through experience and service</p>
                 </div>
 
-                <div class="faith-card">
-                    <div class="faith-icon">🧘</div>
-                    <h3>Wellness Program</h3>
-                    <p>Mental health support, mindfulness, and stress management for all students.</p>
-                </div>
             </div>
         </div>
     </section>
@@ -775,7 +733,7 @@
             </div>
 
             <div class="gallery-grid">
-                <div class="gallery-item">🎓</div>
+                <div class="gallery-item"><img src="./image/g1.jpg" alt="" srcset=""></div>
                 <div class="gallery-item">🏆</div>
                 <div class="gallery-item">🎭</div>
                 <div class="gallery-item">🎵</div>
@@ -807,13 +765,30 @@
             <div class="footer-grid">
                 <div class="footer-brand">
                     <div class="footer-logo">waterloo austin</div>
-                    <p>Preparing students to lead, innovate, and make a difference in an ever-changing world.</p>
+                    <p>An Innovative, Relationship-Centered, and Project-Based Private High School in South Austin</p>
                     <div class="footer-social" style="margin-top: var(--space-lg);">
-                        <a href="#" aria-label="Facebook">📘</a>
-                        <a href="#" aria-label="Twitter">🐦</a>
-                        <a href="#" aria-label="Instagram">📷</a>
-                        <a href="#" aria-label="LinkedIn">💼</a>
-                        <a href="#" aria-label="YouTube">▶️</a>
+                        <a href="https://www.facebook.com/waterlooschoolatx/" aria-label="Facebook"> 
+                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                    </svg></a>
+                     
+                        <a href="https://www.instagram.com/waterlooschoolatx/" aria-label="Instagram"> 
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                    </svg></a>
+                        <a href="https://www.youtube.com/@waterlooschoolaustin" aria-label="YouTube">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z">
+                        </path>
+                        <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+                    </svg>
+                        </a>
                     </div>
                 </div>
 
@@ -849,7 +824,7 @@
             </div>
 
             <div class="footer-bottom">
-                <p>&copy; 2024 waterloo austin. All rights reserved.</p>
+                <p>&copy; 2026 waterloo austin. All rights reserved.</p>
                 <p style="margin-top: var(--space-sm); font-size: var(--text-xs); opacity: 0.7;">
                     <a href="#" style="margin-right: var(--space-md);">Privacy Policy</a>
                     <a href="#" style="margin-right: var(--space-md);">Terms of Service</a>
@@ -858,6 +833,7 @@
             </div>
         </div>
     </footer>
+
 
     <div class="page-transition"></div>
     <div class="lightbox">
