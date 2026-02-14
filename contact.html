@@ -7,6 +7,8 @@
     <meta name="description"
         content="Get in touch with waterloo austin - schedule a visit, ask questions, or learn more about admissions.">
     <title>Contact Us - waterloo austin</title>
+        <link rel="icon" type="image/svg+xml" href="/image/logo.png">
+
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -206,9 +208,9 @@
         }
 
         .map-container {
-            background: var(--gradient-mesh);
+            /* background: var(--gradient-mesh); */
             border-radius: var(--radius-xl);
-            height: 400px;
+            /* height: 400px; */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -352,23 +354,23 @@
 </head>
 
 <body>
+    
     <!-- Page Loader -->
     <div class="loader">
         <div class="loader-content">
-                     <div class="loader-logo"><img src="./image/logo.png"></div>
+            <div class="loader-logo" style="width: 150px; height:150px;"><img src="./image/logo.png"
+                    style="width: 100px; height:100px;"></div>
+
             <p class="loader-text">Preparing Future Leaders</p>
-            <div class="loader-progress">
-                <div class="loader-progress-bar"></div>
-            </div>
         </div>
     </div>
 
     <!-- Navigation -->
-    <nav class="navbar scrolled" id="mainNavbar">
+    <nav class="navbar" id="mainNavbar">
         <div class="navbar-container">
             <a href="index.html" class="navbar-brand">
-                <span class="brand-icon">FA</span>
-                <span class="brand-text">waterloo austin</span>
+                <span class="brand-icon"> <img src="./image/logo1.png" alt="" srcset=""> </span>
+
             </a>
 
             <!-- Mobile Toggle Button -->
@@ -460,7 +462,7 @@
                 </ul>
 
                 <div class="navbar-actions">
-                    <a href="admissions.html" class="btn btn-secondary">Apply Now</a>
+                    <a href="admissions.html" class="btn ">Apply Now</a>
                     <a href="contact.html" class="btn btn-primary">Schedule a Visit</a>
                 </div>
             </div>
@@ -495,25 +497,25 @@
                         <div class="contact-card">
                             <div class="contact-icon">📍</div>
                             <h3>Address</h3>
-                            <p>123 Education Lane<br>Academic City, AC 12345</p>
+                            <p>1511 S Congress Ave, <br>Austin, TX 78704</p>
                         </div>
 
                         <div class="contact-card">
                             <div class="contact-icon">📞</div>
                             <h3>Phone</h3>
-                            <p><a href="tel:1234567890">(123) 456-7890</a></p>
+                            <p><a href="tel:(512) 758-4445">(512) 758-4445</a></p>
                         </div>
 
                         <div class="contact-card">
                             <div class="contact-icon">✉️</div>
                             <h3>Email</h3>
-                            <p><a href="mailto:info@futureacademy.edu">info@futureacademy.edu</a></p>
+                            <p><a href="mailto:learn@waterlooaustin.org">learn@waterlooaustin.org</a></p>
                         </div>
 
                         <div class="contact-card">
                             <div class="contact-icon">🎓</div>
                             <h3>Admissions</h3>
-                            <p><a href="mailto:admissions@futureacademy.edu">admissions@futureacademy.edu</a></p>
+                            <p><a href="mailto:admissions@waterlooaustin.org">admissions@waterlooaustin.org</a></p>
                         </div>
                     </div>
                 </div>
@@ -578,7 +580,7 @@
             </div>
 
             <div class="map-container">
-                🗺️
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3446.6048476143915!2d-97.75249322498162!3d30.24834310888223!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8644b5dc3b9add97%3A0x50bef9f83474a4fb!2sWaterloo%20School%20Austin!5e0!3m2!1sen!2sin!4v1771050492690!5m2!1sen!2sin" width="1500" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" style="object-fit: cover;"></iframe>
             </div>
 
             <div style="text-align: center; margin-top: var(--space-xl);">
@@ -588,7 +590,7 @@
     </section>
 
     <!-- Hours Section -->
-    <section class="hours-section">
+    <!-- <section class="hours-section">
         <div class="container">
             <div class="section-header">
                 <h2>Office Hours</h2>
@@ -627,44 +629,9 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
-    <!-- Social Section -->
-    <section class="social-section">
-        <div class="container">
-            <div class="section-header">
-                <h2>Connect With Us</h2>
-                <p>Follow us on social media for the latest news, events, and updates.</p>
-            </div>
-
-            <div class="social-grid">
-                <a href="#" class="social-card">
-                    <div class="social-icon">📘</div>
-                    <h4>Facebook</h4>
-                </a>
-
-                <a href="#" class="social-card">
-                    <div class="social-icon">🐦</div>
-                    <h4>Twitter</h4>
-                </a>
-
-                <a href="#" class="social-card">
-                    <div class="social-icon">📷</div>
-                    <h4>Instagram</h4>
-                </a>
-
-                <a href="#" class="social-card">
-                    <div class="social-icon">💼</div>
-                    <h4>LinkedIn</h4>
-                </a>
-
-                <a href="#" class="social-card">
-                    <div class="social-icon">▶️</div>
-                    <h4>YouTube</h4>
-                </a>
-            </div>
-        </div>
-    </section>
+  
 
     <!-- CTA Section -->
     <section class="cta-section">
@@ -680,19 +647,36 @@
         </div>
     </section>
 
-    <!-- Footer -->
+   <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
                     <div class="footer-logo">waterloo austin</div>
-                    <p>Preparing students to lead, innovate, and make a difference in an ever-changing world.</p>
+                    <p>An Innovative, Relationship-Centered, and Project-Based Private High School in South Austin</p>
                     <div class="footer-social" style="margin-top: var(--space-lg);">
-                        <a href="#" aria-label="Facebook">📘</a>
-                        <a href="#" aria-label="Twitter">🐦</a>
-                        <a href="#" aria-label="Instagram">📷</a>
-                        <a href="#" aria-label="LinkedIn">💼</a>
-                        <a href="#" aria-label="YouTube">▶️</a>
+                        <a href="https://www.facebook.com/waterlooschoolatx/" aria-label="Facebook"> 
+                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                    </svg></a>
+                     
+                        <a href="https://www.instagram.com/waterlooschoolatx/" aria-label="Instagram"> 
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                    </svg></a>
+                        <a href="https://www.youtube.com/@waterlooschoolaustin" aria-label="YouTube">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z">
+                        </path>
+                        <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+                    </svg>
+                        </a>
                     </div>
                 </div>
 
@@ -728,7 +712,7 @@
             </div>
 
             <div class="footer-bottom">
-                <p>&copy; 2024 waterloo austin. All rights reserved.</p>
+                <p>&copy; 2026 waterloo austin. All rights reserved.</p>
                 <p style="margin-top: var(--space-sm); font-size: var(--text-xs); opacity: 0.7;">
                     <a href="#" style="margin-right: var(--space-md);">Privacy Policy</a>
                     <a href="#" style="margin-right: var(--space-md);">Terms of Service</a>
@@ -737,7 +721,7 @@
             </div>
         </div>
     </footer>
-
+    
     <div class="page-transition"></div>
     <div class="lightbox">
         <button class="lightbox-close">×</button>
