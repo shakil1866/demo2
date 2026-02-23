@@ -840,8 +840,8 @@ p {
 }
 
 .feature-icon {
-    width: 64px;
-    height: 64px;
+    /* width: 64px;
+    height: 64px; */
     background: var(--gradient-mesh);
     border-radius: var(--radius-lg);
     display: flex;
